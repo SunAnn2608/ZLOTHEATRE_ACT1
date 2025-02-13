@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'PaladinPCRus';
+  src: url('/fonts/ofont.ru_PaladinPCRus.ttf') format('.ttf');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Sehnuscht Font';
+  src: url('/fonts/ofont.ru_Sehnsucht\ Font.ttf') format('.ttf');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'PTSansNarrow';
+  src: url('/fonts/PTSansNarrow-Regular.ttf') format('.ttf');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'PTSansNarrow';
+  src: url('/fonts/PTSansNarrow-Bold.ttf') format('.ttf');
+  font-style: normal;
+  font-weight: 700;
+}
