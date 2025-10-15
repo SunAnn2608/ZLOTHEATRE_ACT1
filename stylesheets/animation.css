@@ -1,0 +1,70 @@
+/* <!-- анимации --> */
+@keyframes cloudsFloat {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-2.5%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.clouds {
+  animation: cloudsFloat 18s ease-in-out infinite;
+}
+
+@keyframes grassSway {
+  0%,
+  100% {
+    transform: skewX(0) translateY(0);
+  }
+  50% {
+    transform: skewX(-1.2deg) translateY(0.4%);
+  }
+}
+.grass {
+  transform-origin: bottom;
+  animation: grassSway 3.8s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    transform: translate3d(-1px, 1px, 0) rotate(-0.2deg);
+  }
+  40% {
+    transform: translate3d(1px, -1px, 0) rotate(0.2deg);
+  }
+  60% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  80% {
+    transform: translate3d(1px, 1px, 0);
+  }
+}
+.shake {
+  animation: shake 0.45s linear 1;
+}
+
+@keyframes upDown {
+  0%,
+  100% {
+    transform: translate(-50%, -52%);
+  }
+  50% {
+    transform: translate(-50%, -48%);
+  }
+}
+@keyframes birdFly {
+  0% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -140vh) scale(1.2);
+    opacity: 0;
+  }
+}

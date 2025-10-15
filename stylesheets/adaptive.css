@@ -1,0 +1,33 @@
+/* <!-- резиновая адаптивность + брейки с оверлеем --> */
+
+/* планшеты и уже — аккуратнее с панелью */
+@media (max-width: 1024px) {
+  .panel-text,
+  .bubble-text {
+    max-width: 84%;
+  }
+}
+
+/* телефоны — увеличим кликабельные элементы */
+@media (max-width: 640px) {
+  .btn-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .panel,
+  .bubble-inner {
+    gap: 16px;
+  }
+}
+
+/* строго из макета: 414×896 и 360×640 в портретной ориентации — показать оверлей поворота */
+@media (orientation: portrait) and (max-width: 414px) and (max-height: 896px) {
+  #rotateOverlay {
+    display: flex;
+  }
+}
+@media (orientation: portrait) and (max-width: 360px) and (max-height: 640px) {
+  #rotateOverlay {
+    display: flex;
+  }
+}

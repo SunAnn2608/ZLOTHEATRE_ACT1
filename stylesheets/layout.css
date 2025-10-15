@@ -1,0 +1,394 @@
+/* <!-- общий лэйаут и стили сцен --> */
+.app {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+}
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  display: none;
+}
+.scene.active {
+  display: block;
+}
+
+.cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.big-action {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Blackcraft, var(--ui);
+  font-size: clamp(56px, 8vw, 128px);
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  user-select: none;
+  cursor: pointer;
+}
+.big-action.left {
+  left: 28%;
+}
+.big-action.right {
+  left: 72%;
+}
+.hidden {
+  display: none !important;
+}
+.clickable {
+  cursor: pointer;
+}
+
+/* <!-- плашка сцены-1 --> */
+.panel {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(16px, 6vh, 80px);
+  transform: translateX(-50%);
+  width: var(--panel-w);
+  max-width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: var(--panel-pad-y) var(--panel-pad-x);
+  font-size: var(--panel-fs);
+  line-height: 1.35;
+  z-index: 5;
+}
+.panel-bg {
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+  z-index: -1;
+}
+.panel-text {
+  max-width: 78%;
+}
+.btn-icon {
+  width: 48px;
+  height: 48px;
+  user-select: none;
+}
+
+/* <!-- элементы двора --> */
+.yard-item {
+  position: absolute;
+}
+.yard-lock.shake-it {
+  animation: shake 0.45s linear 1;
+}
+
+/* <!-- оверлеи / попапы --> */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  place-items: center;
+  z-index: 50;
+}
+.overlay.show {
+  display: grid;
+}
+
+/* <!-- мини-игра фонарик --> */
+.flashlight-wrap {
+  position: relative;
+  width: min(800px, 92vw);
+  height: min(1000px, 88vh);
+  background: #000;
+  overflow: hidden;
+}
+.flashlight-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+.face {
+  position: absolute;
+  width: 20%;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.15s;
+}
+.flashlight-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  -webkit-mask: radial-gradient(
+    120px 120px at var(--mx, 50%) var(--my, 50%),
+    transparent 0 60px,
+    #000 61px
+  );
+  mask: radial-gradient(
+    120px 120px at var(--mx, 50%) var(--my, 50%),
+    transparent 0 60px,
+    #000 61px
+  );
+}
+.face.cleared {
+  opacity: 0;
+}
+
+/* <!-- мини-игра пауки --> */
+.spiders-wrap {
+  position: relative;
+  width: min(800px, 92vw);
+  height: min(1000px, 88vh);
+  background: #000;
+  overflow: hidden;
+}
+.spiders-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+.spider {
+  position: absolute;
+  width: 16%;
+  transition: transform 0.08s;
+}
+.spider.caught {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+/* <!-- пузырь в коридоре --> */
+.corr-bubble {
+  position: absolute;
+  left: 151px;
+  bottom: 80px;
+  width: min(1597px, 90vw);
+}
+.bubble-inner {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: var(--panel-pad-y) var(--panel-pad-x);
+}
+.bubble-bg {
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+  z-index: -1;
+}
+.bubble-text {
+  max-width: 80%;
+  font-size: var(--panel-fs);
+  line-height: 1.35;
+}
+
+/* <!-- модал письма --> */
+.letter-modal {
+  position: relative;
+  width: min(1920px, 100vw);
+  height: min(1080px, 100vh);
+}
+.letter-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 3, 3, 0.5);
+}
+.letter-shadow {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  translate: -50% -50%;
+  width: min(533px, 46vw);
+  height: min(787px, 62vh);
+  filter: blur(300px);
+  background: #716c70;
+  opacity: 0.9;
+}
+.letter-pic {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: min(29.74vw, 570px);
+}
+.letter-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: min(28vw, 520px);
+  font-family: 'Blackcraft', var(--ui);
+  font-size: clamp(28px, 2.4vw, 40px);
+  text-align: left;
+}
+.choice-title {
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  translate: -50% 0;
+  font-family: Blackcraft;
+  font-size: clamp(56px, 6vw, 120px);
+  color: #e10;
+}
+.choice-yes,
+.choice-no {
+  position: absolute;
+  top: 42%;
+  font-family: Blackcraft;
+  font-size: clamp(56px, 6vw, 120px);
+  cursor: pointer;
+}
+.choice-yes {
+  left: 14%;
+}
+.choice-no {
+  right: 14%;
+}
+
+/* <!-- развилка в лесу --> */
+.forest-btn {
+  position: absolute;
+  top: 52%;
+  font-family: Blackcraft;
+  font-size: clamp(56px, 6vw, 120px);
+  cursor: pointer;
+}
+.forest-left {
+  left: 10%;
+}
+.forest-right {
+  right: 10%;
+}
+
+/* <!-- концовки --> */
+.good-girl {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  translate: -50% -50%;
+  width: min(720px, 70vw);
+  animation: upDown 3.6s ease-in-out infinite;
+}
+.bird {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: min(220px, 18vw);
+  animation: birdFly 3.5s linear infinite;
+}
+.wolf {
+  position: absolute;
+  bottom: 8%;
+  left: 20%;
+  width: min(240px, 20vw);
+}
+
+/* <!-- оверлей поворота телефона --> */
+#rotateOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: #600101;
+}
+#rotateOverlay .rot-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+#rotateOverlay .rot-card {
+  position: relative;
+  width: min(82vw, 322px);
+  height: min(60vh, 458px);
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 24px;
+}
+#rotateOverlay .rot-icon {
+  width: min(60vw, 200px);
+}
+#rotateOverlay .rot-text {
+  font-family: Blackcraft, Unutterable, var(--ui);
+  font-size: clamp(22px, 6vw, 30px);
+  text-align: center;
+  line-height: 1.1;
+}
+/* =========================
+   Cursor — base and states
+   ========================= */
+
+/* базовый (пассивный) курсор — РУКА */
+html,
+body {
+  /* hotspot примерно по центру (16 16) для иконки 32×32; подгоняй под свой размер */
+  cursor: url('../images/cursor-passive.png') 16 16, auto;
+}
+
+/* активный курсор — ГЛАЗ — когда наводим на кликабельные области */
+a, button, [role="button"],
+/* универсальные «клики» по проекту */
+.clickable, .interactive, .hotspot, .choice,
+.panel-arrow, .panel-close, .yes, .no,
+/* сцены у дома */
+.door, .mail, .window, .bucket, .wash-basin, .barrel, .lock, .mirror, .blood, .scratches,
+/* навигационные элементы */
+.next, .prev {
+  cursor: url('../images/cursor-active.png') 16 16, pointer;
+}
+
+/* вспомогательный класс: навесил .cursor-active — получишь глаз */
+.cursor-active {
+  cursor: url('../images/cursor-active.png') 16 16, pointer;
+}
+
+/* На тач-устройствах кастомный курсор не показываем */
+@media (any-pointer: coarse) {
+  html,
+  body,
+  a,
+  button,
+  [role='button'],
+  .clickable,
+  .interactive,
+  .hotspot,
+  .choice,
+  .panel-arrow,
+  .panel-close,
+  .cursor-active {
+    cursor: auto;
+  }
+}
+
+/* В мини-играх с фонариком мы прячем курсор полностью */
+.flashlight-overlay,
+.flashlight-overlay * {
+  cursor: none !important;
+}
+/* при зажатой кнопке мыши показываем активный курсор глобально */
+.cursor-pressed,
+.cursor-pressed body {
+  cursor: url('../images/cursor-active.png') 16 16, auto;
+}

@@ -1,11 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="javascripts/scripts.js"></script>
+    <title>Театр Страхов</title>
     <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="shortcut icon" href="./images/Zloteatr.svg" type="image/x-icon" />
   </head>
-  <body></body>
+  <body>
+    <main id="app" class="app">
+
+      <!-- ========== SCENE 1: CURTAIN (пролог) ========== -->
+      <section id="scene-curtain" class="scene active">
+        <img id="curtainBg" class="cover-img" src="images/curtain-bg.png" alt="curtain" />
+
+        <!-- плашка сцены-1 -->
+        <div id="curtainPanel" class="panel">
+          <img id="panelBg1" class="panel-bg" src="images/text-bg.png" alt="" />
+          <img id="curtainClose" class="btn-icon clickable" src="images/close.svg" alt="close" />
+          <div id="curtainText" class="panel-text">
+            Добро пожаловать в Злотеатр, место где леденящие душу истории<br />
+            рождаются прямо на сцене.<br />
+            Готов ли Ты стать не просто зрителем, а героем нашей новой пьесы?
+          </div>
+          <img id="curtainNext" class="btn-icon clickable" src="images/Arrow.svg" alt="next" />
+        </div>
+
+        <div id="chooseYes" class="big-action left hidden">ДА</div>
+        <div id="chooseNo" class="big-action right hidden">НЕТ</div>
+      </section>
+
+      <!-- ========== SCENE 2: FIELD (поле) ========== -->
+      <section id="scene-field" class="scene">
+        <img id="fieldSky" class="cover-img clouds" src="images/countryside-sky.png" alt="" />
+        <img id="fieldGrass" class="cover-img grass" src="images/countryside-grass.png" alt="" />
+        <img id="fieldHouse" class="cover-img" src="images/countryside-house.png" alt="" />
+
+        <div id="actionGo" class="big-action">ИДТИ</div>
+        <div id="actionApproach" class="big-action hidden">ПОДОЙТИ</div>
+      </section>
+
+      <!-- ========== SCENE 3: WINDOW (скример) ========== -->
+      <section id="scene-window" class="scene">
+        <img id="windowBg" class="cover-img" src="images/window-bg.png" alt="" />
+
+        <!-- плашка сцены-1 -->
+        <div id="windowPanel" class="panel">
+          <img id="panelBg2" class="panel-bg" src="images/text-bg.png" alt="" />
+          <img id="windowClose" class="btn-icon clickable" src="images/close.svg" alt="close" />
+          <div id="windowText" class="panel-text">
+            Дом стоял безмолвный, окна темнели.<br />
+            Вспомнилось детство — я всегда стучал в стекло, звал бабушку.
+          </div>
+          <img id="windowNext" class="btn-icon clickable" src="images/Arrow.svg" alt="next" />
+        </div>
+
+        <img id="windowFrame" class="clickable" src="images/window-1.png" alt=""
+             style="position:absolute;left:50%;top:52%;translate:-50% -50%;width:min(760px,60vw)" />
+        <img id="windowDemon" class="hidden" src="images/window-2.png" alt=""
+             style="position:absolute;left:50%;top:52%;translate:-50% -50%;width:min(480px,40vw)" />
+        <div id="actionRun" class="big-action hidden" style="left:auto;right:8%">БЕЖАТЬ</div>
+      </section>
+
+      <!-- ========== SCENE 4: YARD (поиск ключа) ========== -->
+      <section id="scene-yard" class="scene">
+        <img id="yardBg" class="cover-img" src="images/yard-bg.png" alt="" />
+
+        <img id="yardClouds" class="yard-item clouds" src="images/yard-clouds.png" alt="" style="top:20px;right:20px;width:28%" />
+        <img id="yardBush"   class="yard-item grass"  src="images/yard-bush.png"   alt="" style="right:0;bottom:0;width:32%" />
+
+        <img id="yardWindow" class="yard-item clickable" src="images/yard-window.png"        alt="" style="left:2%;top:10%;width:22%" />
+        <img id="yardBarrel" class="yard-item clickable" src="images/yard-barrel.png"        alt="" style="left:6%;bottom:8%;width:12%" />
+        <img id="yardDoor"   class="yard-item clickable" src="images/yard-door-closed.png"   alt="" style="left:24%;top:4%;width:36%" />
+        <img id="yardMail"   class="yard-item clickable" src="images/yard-mail.png"          alt="" style="left:55%;top:26%;width:9%" />
+        <img id="yardBucket" class="yard-item clickable" src="images/yard-bucket.png"        alt="" style="left:62%;bottom:12%;width:12%" />
+        <img id="yardWash"   class="yard-item clickable" src="images/yard-wash-basin.png"    alt="" style="left:65%;top:42%;width:7%" />
+        <img id="yardWeb"    class="yard-item clickable" src="images/yard-spiderweb.png"     alt="" style="left:54%;top:1%;width:11%" />
+        <img id="yardLock"   class="yard-item yard-lock" src="images/yard-lock.png"          alt="" style="left:26%;top:52%;width:7%" />
+
+        <!-- плашка сцены-1 -->
+        <div id="yardPanel" class="panel hidden">
+          <img id="panelBg3" class="panel-bg" src="images/text-bg.png" alt="" />
+          <img id="yardClose" class="btn-icon clickable" src="images/close.svg" alt="close" />
+          <div id="yardText" class="panel-text">Тут ничего нет, нужно посмотреть в другом месте</div>
+          <img id="yardNext" class="btn-icon clickable" src="images/Arrow.svg" alt="next" />
+        </div>
+
+        <!-- затемнение с большим ключом -->
+        <div id="keyOverlay" class="overlay">
+          <img id="keyBig" class="clickable" src="images/key.png" alt="key" style="width:min(420px,40vw)" />
+        </div>
+      </section>
+
+      <!-- ========== POPUP: мини-игра «фонарик» ========== -->
+      <div id="flashlightOverlay" class="overlay">
+        <div class="flashlight-wrap">
+          <img class="flashlight-bg" src="images/flashlight-bg.png" alt="">
+          <img class="face" id="face1" src="images/face-1.png" style="left:10%;top:8%">
+          <img class="face" id="face2" src="images/face-2.png" style="right:8%;top:6%">
+          <img class="face" id="face3" src="images/face-3.png" style="left:34%;top:32%">
+          <img class="face" id="face4" src="images/face-4.png" style="right:10%;bottom:10%">
+          <img class="face" id="face5" src="images/face-5.png" style="left:8%;bottom:8%">
+          <div class="flashlight-mask" id="flashlightMask"></div>
+        </div>
+      </div>
+
+      <!-- ========== POPUP: мини-игра «пауки» ========== -->
+      <div id="spidersOverlay" class="overlay">
+        <div id="spidersWrap" class="spiders-wrap">
+          <img class="spiders-bg" src="images/spiders-bg.png" alt="">
+          <img class="spider" id="sp1" src="images/spider-black.png" style="left:6%;top:8%">
+          <img class="spider" id="sp2" src="images/spider-red.png"   style="right:10%;top:10%">
+          <img class="spider" id="sp3" src="images/spider-white.png" style="left:28%;top:34%">
+          <img class="spider" id="sp4" src="images/spider-black.png" style="left:10%;bottom:8%">
+          <img class="spider" id="sp5" src="images/spider-red.png"   style="right:12%;bottom:12%">
+        </div>
+      </div>
+
+      <!-- ========== SCENE 5: CORRIDOR (внутри дома) ========== -->
+      <section id="scene-corridor" class="scene">
+        <img id="corridorBg" class="cover-img" src="images/corridor.png" alt="" />
+
+        <img id="corrDoor"      class="clickable" src="images/corr-door-light.png" alt="" style="position:absolute;left:33%;top:26%;width:18%" />
+        <img id="corrLetter"    class="clickable" src="images/corr-letter.png"      alt="" style="position:absolute;left:34%;bottom:10%;width:12%" />
+        <img id="corrCross"     class="clickable" src="images/corr-cross.png"       alt="" style="position:absolute;left:35%;top:10%;width:8%" />
+        <img id="corrBlood"     class="clickable" src="images/corr-blood.png"       alt="" style="position:absolute;right:17%;top:49%;width:14%" />
+        <img id="corrScratches" class="clickable" src="images/corr-scratches.png"   alt="" style="position:absolute;right:12%;top:3%;width:10%" />
+        <img id="corrMirror"    class="clickable" src="images/corr-mirror.png"      alt="" style="position:absolute;left:9%;top:5%;width:18%" />
+
+        <img id="devilHand" class="hidden" src="images/devil-hand.png" alt=""
+             style="position:absolute;left:36%;top:29%;width:16%" />
+
+        <!-- плашка сцены-1 -->
+        <div id="corrPanel" class="corr-bubble hidden">
+          <div class="bubble-inner">
+            <img id="panelBg4" class="bubble-bg" src="images/text-bg.png" alt="" />
+            <img id="corrClose" class="btn-icon clickable" src="images/close.svg" alt="close" />
+            <div id="corrText" class="bubble-text"></div>
+            <img id="corrNext" class="btn-icon clickable" src="images/Arrow.svg" alt="next" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== LETTER POPUP ========== -->
+      <div id="letterOverlay" class="overlay">
+        <div class="letter-modal">
+          <img class="cover-img" src="images/corridor.png" alt="">
+          <div class="letter-dim"></div>
+          <img class="letter-pic" src="images/letter-paper.png" alt="">
+          <div class="letter-shadow"></div>
+          <div class="letter-text">
+            <p>Попрощайся с самым</p>
+            <p>близким для тебя человеком...</p>
+            <p>Ты больше никогда не увидишь Марину.</p>
+            <p>Стая выбрала её. Она новая избранная для владыки.</p>
+          </div>
+
+          <div id="choiceTitle" class="choice-title hidden">ПОВЕРИТЬ?</div>
+          <div id="choiceYes" class="choice-yes hidden clickable">ДА</div>
+          <div id="choiceNo"  class="choice-no  hidden clickable">НЕТ</div>
+
+          <img id="letterEnvelope" class="clickable" src="images/letter-envelope.png"
+               style="position:absolute;left:16%;bottom:8%;width:22%" alt="">
+        </div>
+      </div>
+
+      <!-- ========== SCENE 6: FOREST (развилка) ========== -->
+      <section id="scene-forest" class="scene">
+        <img id="forestBg" class="cover-img" src="images/forest.png" alt="">
+        <div id="forestLeft"  class="forest-btn forest-left clickable">НАЛЕВО</div>
+        <div id="forestRight" class="forest-btn forest-right clickable">НАПРАВО</div>
+      </section>
+
+      <!-- ========== SCENE 7: GOOD END ========== -->
+      <section id="scene-good" class="scene">
+        <img id="goodBg" class="cover-img" src="images/good-bg.png" alt="">
+        <img id="goodGirl" class="good-girl" src="images/good-girl.png" alt="">
+      </section>
+
+      <!-- ========== SCENE 8: BAD END ========== -->
+      <section id="scene-bad" class="scene">
+        <img id="badBg" class="cover-img" src="images/bad-bg.png" alt="">
+        <img class="bird" src="images/bird.png" style="left:30%;animation-delay:.2s">
+        <img class="bird" src="images/bird.png" style="left:50%;animation-delay:.6s">
+        <img class="bird" src="images/bird.png" style="left:70%;animation-delay:.9s">
+        <img id="wolf1" class="wolf" src="images/wolf.png" style="left:20%">
+        <img id="wolf2" class="wolf" src="images/wolf.png" style="left:60%">
+      </section>
+
+    </main>
+
+    <!-- Оверлей «переверни телефон» для 414×896 и 360×640 -->
+    <div id="rotateOverlay">
+      <img id="rotBg" class="rot-bg" src="images/curtain-bg.png" alt="">
+      <div id="rotCard" class="rot-card">
+        <img id="rotIcon" class="rot-icon" src="images/rotate-phone.png" alt="">
+        <div class="rot-text"><div>ПЕРЕВЕРНИ</div><div>ТЕЛЕФОН</div></div>
+      </div>
+    </div>
+
+    <script src="javascripts/scripts.js"></script>
+  </body>
 </html>
